@@ -1,29 +1,48 @@
-<h2>Sign up</h2>
+<div class="container" style="margin-top: 30px;">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="center-content-container" style="width: 50%; margin: 0 auto;">
+        <div style="background-color: white; border-radius: 8px; border-top: 10px solid rgb(103, 58, 183); padding: 15px;">
+          <h1 class="signup-header exportFormTitle freebirdCustomFont" dir="auto" role="heading" aria-level="1" style="font-family: Roboto,Arial,sans-serif;">Welcome to Shopping Angels!</h1>
+          <div class="signup-description" dir="auto" style="font-family: Roboto,Arial,sans-serif;">
+            Please fill out the information below so we can better serve you.<br><br>
+            Volunteers: We will reach out as soon as we receive a request nearby!<br><br>
+            Clients: We will have a volunteer call once they have been paired with you!<br><br>
+            Remember: We are a grocery DELIVERY service, not a grocery PURCHASING service, so we do not purchase groceries for clients, we buy them, and then deliver them, and then they pay us back for them!<br><br>
+            Liability Notice: Shopping Angels, as an organization, is not liable for any injury or damage to personal items as a result of volunteering for or receiving services from this program.
+          </div>
+        </div>
+        <div class="signup-image" style="background-color: white; border-radius: 8px; margin-top: 15px; padding: 15px;">
+          <%= image_tag "blue_logo.png", style: "width: 100%;" %>
+        </div>
+      </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Sign up" %>
+        </div>
+      <% end %>
+
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
