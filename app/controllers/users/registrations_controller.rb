@@ -12,6 +12,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
+
+
   end
 
   # GET /resource/edit
@@ -59,4 +61,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  def registration_params
+    params.require(:user).permit(
+      :first_name,
+      :last_name,
+      :email,
+      :phone,
+      :street1,
+      :street2,
+      :city,
+      :state,
+      :zip_code,
+      :interest
+    )
+  end
 end

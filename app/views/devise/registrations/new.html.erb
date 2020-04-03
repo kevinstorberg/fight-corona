@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="center-content-container" style="width: 50%; margin: 0 auto;">
-        <div style="background-color: white; border-radius: 8px; border-top: 10px solid rgb(103, 58, 183); padding: 15px;">
+        <!-- <div style="background-color: white; border-radius: 8px; border-top: 10px solid rgb(103, 58, 183); padding: 15px;">
           <h1 class="signup-header exportFormTitle freebirdCustomFont" dir="auto" role="heading" aria-level="1" style="font-family: Roboto,Arial,sans-serif;">Welcome to Shopping Angels!</h1>
           <div class="signup-description" dir="auto" style="font-family: Roboto,Arial,sans-serif;">
             Please fill out the information below so we can better serve you.<br><br>
@@ -14,10 +14,27 @@
         </div>
         <div class="signup-image" style="background-color: white; border-radius: 8px; margin-top: 15px; padding: 15px;">
           <%= image_tag "blue_logo.png", style: "width: 100%;" %>
+        </div> -->
+        <div class="signup-image" style="background-color: white; border-radius: 8px 8px 0px 0px; margin-top: 15px; padding: 15px;">
+          <%= image_tag "keep_calm_fight_on.jpg", style: "width: 100%;" %>
+        </div>
+        <div style="background-color: white; border-radius: 0px 0px 8px 8px; padding: 15px;">
+          <h1 class="signup-header exportFormTitle freebirdCustomFont" dir="auto" role="heading" aria-level="1" style="font-family: Roboto,Arial,sans-serif;">We can beat this together!</h1>
+          <div class="signup-description" dir="auto" style="font-family: Roboto,Arial,sans-serif;">
+            Please complete the form below, and we will follow up with your next steps. Thank you for reaching out!<br><br>
+            <span style="font-weight: 900">Liability Notice:</span> This site is here to help match at risk individuals with eager volunteers. This site, and it's owners are not liable for any injury or damage to personal items as a result of volunteering for or receiving services from this program.
+          </div>
         </div>
 
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= render "devise/shared/error_messages", resource: resource %>
+
+          <div style="background-color: white; border-radius: 8px; margin-top: 15px; padding: 15px;">
+            <div class="form-group">
+              <%= f.label :interest, "I would like to" %>
+            <%= f.select :interest, options_for_select(interest_options), { include_blank: true }, class: "form-control" %>
+            </div>
+          </div>
 
           <div style="background-color: white; border-radius: 8px; margin-top: 15px; padding: 15px;">
             <div class="form-group">
@@ -35,43 +52,8 @@
 
           <div style="background-color: white; border-radius: 8px; margin-top: 15px; padding: 15px;">
             <div class="form-group">
-              <%= f.label :last_name %>
-              <%= f.text_field :last_name, class: "form-control" %>
-            </div>
-          </div>
-
-          <div style="background-color: white; border-radius: 8px; margin-top: 15px; padding: 15px;">
-            <div class="form-group">
-              <%= f.label :street1 %>
-              <%= f.text_field :street1, class: "form-control" %>
-            </div>
-          </div>
-
-          <div style="background-color: white; border-radius: 8px; margin-top: 15px; padding: 15px;">
-            <div class="form-group">
-              <%= f.label :street2 %>
-              <%= f.text_field :street2, class: "form-control" %>
-            </div>
-          </div>
-
-          <div style="background-color: white; border-radius: 8px; margin-top: 15px; padding: 15px;">
-            <div class="form-group">
-              <%= f.label :state %>
-              <%= f.text_field :state, class: "form-control" %>
-            </div>
-          </div>
-
-          <div style="background-color: white; border-radius: 8px; margin-top: 15px; padding: 15px;">
-            <div class="form-group">
-              <%= f.label :city %>
-              <%= f.text_field :city, class: "form-control" %>
-            </div>
-          </div>
-
-          <div style="background-color: white; border-radius: 8px; margin-top: 15px; padding: 15px;">
-            <div class="form-group">
-              <%= f.label :zip_code %>
-              <%= f.text_field :zip_code, class: "form-control" %>
+              <%= f.label :email %>
+              <%= f.text_field :email, class: "form-control" %>
             </div>
           </div>
 
@@ -84,12 +66,40 @@
 
           <div style="background-color: white; border-radius: 8px; margin-top: 15px; padding: 15px;">
             <div class="form-group">
-              <%= f.label :email %>
-              <%= f.text_field :email, class: "form-control" %>
+              <%= f.label :street1, "Address Line One" %>
+              <%= f.text_field :street1, class: "form-control" %>
             </div>
           </div>
 
           <div style="background-color: white; border-radius: 8px; margin-top: 15px; padding: 15px;">
+            <div class="form-group">
+              <%= f.label :street2, "Address Line Two" %>
+              <%= f.text_field :street2, class: "form-control" %>
+            </div>
+          </div>
+
+          <div style="background-color: white; border-radius: 8px; margin-top: 15px; padding: 15px;">
+            <div class="form-group">
+              <%= f.label :city %>
+              <%= f.text_field :city, class: "form-control" %>
+            </div>
+          </div>
+
+          <div style="background-color: white; border-radius: 8px; margin-top: 15px; padding: 15px;">
+            <div class="form-group">
+              <%= f.label :state %>
+              <%= f.text_field :state, class: "form-control" %>
+            </div>
+          </div>
+
+          <div style="background-color: white; border-radius: 8px; margin-top: 15px; padding: 15px;">
+            <div class="form-group">
+              <%= f.label :zip_code %>
+              <%= f.text_field :zip_code, class: "form-control" %>
+            </div>
+          </div>
+
+          <!-- <div style="background-color: white; border-radius: 8px; margin-top: 15px; padding: 15px;">
             <div class="form-group">
               <%= f.label :interest, "I Am Interested In" %>
               <%= f.text_field :interest, class: "form-control" %>
@@ -122,9 +132,10 @@
               <%= f.label :comments, "Please leave any additional comments here:" %>
               <%= f.text_field :comments, class: "form-control" %>
             </div>
-          </div>
+          </div> -->
 
-          <%= f.submit "submit", class: "btn btn-primary", style: "margin-top: 15px; background-color: rgb(103, 58, 183); border: 1px solid rgb(103, 58, 183); margin-bottom: 15px;" %>
+          <!-- <%= f.submit "submit", class: "btn btn-primary", style: "margin-top: 15px; background-color: rgb(103, 58, 183); border: 1px solid rgb(103, 58, 183); margin-bottom: 15px;" %> -->
+          <%= f.submit "Join The Fight", class: "btn btn-primary", style: "margin-top: 15px; background-color: #459688; border: 6px solid white; margin-bottom: 30px;" %>
 
         <% end %>
 
